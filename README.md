@@ -14,11 +14,12 @@ A geospatial AI pipeline for building-level solar potential assessment in Centra
    - Deliver an interactive dashboard for decision-makers
 
 2. Study Area
+   
    Location: Central Accra, Ghana
    Scope: Pilot area covering 632,195 buildings
    Focus: Dense urban environment with high solar potential and unreliable grid power
 
-3. Methodology & Pipeline
+4. Methodology & Pipeline
 Phase 1: Building Footprints
 
 Combined Google Open Buildings and Microsoft Global Building Footprints datasets
