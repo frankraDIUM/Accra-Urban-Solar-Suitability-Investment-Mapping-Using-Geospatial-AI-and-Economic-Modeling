@@ -6,19 +6,17 @@ A geospatial AI pipeline for building-level solar potential assessment in Centra
 
 
 1. Project Objective
-  Develop a scalable geospatial AI pipeline to:
-
-  Detect and characterize individual building rooftops
-  Assess solar suitability per building using roof geometry and environmental factors
-  Estimate annual solar energy generation (kWh)
-  Calculate economic viability (payback period and Net Present Value)
-  Deliver an interactive dashboard for decision-makers
+   Develop a scalable geospatial AI pipeline to:
+   - Detect and characterize individual building rooftops
+   - Assess solar suitability per building using roof geometry and environmental factors
+   - Estimate annual solar energy generation (kWh)
+   - Calculate economic viability (payback period and Net Present Value)
+   - Deliver an interactive dashboard for decision-makers
 
 2. Study Area
-
-Location: Central Accra, Ghana
-Scope: Pilot area covering 632,195 buildings
-Focus: Dense urban environment with high solar potential and unreliable grid power
+   Location: Central Accra, Ghana
+   Scope: Pilot area covering 632,195 buildings
+   Focus: Dense urban environment with high solar potential and unreliable grid power
 
 3. Methodology & Pipeline
 Phase 1: Building Footprints
