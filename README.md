@@ -1,7 +1,7 @@
 # 🌞 Building-Level Solar Suitability Mapping in Urban Ghana
 **Accra Solar Rooftop Suitability & Investment Dashboard**
 
-A geospatial AI pipeline and interactive decision-support tool for urban solar potential in Central Accra, Ghana.
+A geospatial AI pipeline and interactive decision-support tool for urban solar potential in central Accra, Ghana.
 
 
 ---
@@ -34,7 +34,7 @@ Top Investment Opportunities
 
 Summary
 
-  This project developed a scalable, end-to-end geospatial AI pipeline to assess rooftop solar potential across Accra, Ghana. 
+  This project developed a scalable, end-to-end geospatial AI pipeline to assess rooftop solar potential across central Accra, Ghana. 
   
   The system integrates high-resolution building footprints, terrain-derived slope and aspect, NASA POWER solar irradiance data, 
   realistic economic modeling (including dynamic NPV and payback), shadow attenuation via building height proxies, 
