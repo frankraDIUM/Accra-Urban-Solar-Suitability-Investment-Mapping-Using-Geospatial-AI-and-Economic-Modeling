@@ -62,55 +62,8 @@ Detect and characterize individual building rooftops using open building footpri
   - Identify spatial investment hotspots and priority zones.
   - Provide an intuitive, interactive dashboard for stakeholders (households, SMEs, policymakers, investors).
 
-*2. Methodology & Pipeline*
 
-Phase 1–2: Data Acquisition & Building Footprints
-
-  Combined Microsoft Global Building Footprints and Google Open Buildings datasets, 
-  filtered to Accra bounding box, resulting in 632,195 valid building polygons.
-
-Phase 3–4: Terrain & Solar Resource
-
-  Copernicus DEM (30m) → derived slope and aspect at building centroids.
-  NASA POWER API (2020–2025) → annual GHI of ~1,779 kWh/m²/year used as baseline.
-
-Phase 5: Rooftop Geometry & Suitability Modeling
-
-  - Accurate footprint area calculated in UTM Zone 30N.
-  - Roof utilization factor based on slope (0.92 for ≤15°, decaying for steeper roofs).
-  - Usable area = footprint × 0.82 (edge/obstacle buffer) × utilization factor.
-  - Weighted suitability score (slope 45%, aspect 30%, area 25%) with nonlinear scaling.
-
-Phase 6: Shadow Modeling & Energy Adjustment
-
-  - Empirical height proxy: height_m = clip(sqrt(area) × 0.65, 3, 45).
-  - Multi-angle shadow length (weighted 30°/45°/60° sun elevations).
-  - Shadow factor = exp(-weighted_shadow / 120).
-  - Adjusted solar generation: usable_area × GHI × efficiency (20.5%) × PR (0.76) × shadow_factor.
-
-Phase 7: Economic & Financial Modeling
-
-  - System size derived from usable area.
-  - Realistic cost structure (fixed + variable per kW with bulk discount).
-  - Dynamic NPV and payback with user-controlled tariff, discount rate, self-consumption, and 0.5% annual degradation.
-Priority Score = 0.4×Solar Index + 0.4×Normalized NPV + 0.2×Normalized Hotspot Score (+ risk penalty for long payback).
-
-Phase 8: Spatial Aggregation & Hotspot Analysis
-
-  - H3 hexagonal grid (resolution 9) for aggregation (~3,135 hexes).
-  - Metrics per hex: total solar, avg NPV, avg solar index, building count.
-  - Getis-Ord Gi* hotspot detection on normalized solar-per-building to identify statistically significant clusters.
-
-Phase 9: Interactive Dashboard
-
-Built with Streamlit + Folium, featuring:
-
-  - Four synchronized map views: All Buildings (point markers), Solar Potential Density (H3 hex choropleth), Spatial Clusters (Gi* hotspots), Top Investment Opportunities (top 10% priority buildings).
-  - Real-time ROI simulator with sliders.
-  - Dynamic metrics, priority scoring, and GIS export (GeoJSON).
-  - Loading spinners and performance optimizations (caching, downcasting, sampling).
-
-*3. Key Results*
+*2. Key Results*
 
   - Total potential generation: ~6,000+ GWh/year (shadow-adjusted) across Accra.
   - Economic viability: Average simple payback ~7 years; many buildings show strong positive NPV.
@@ -118,23 +71,10 @@ Built with Streamlit + Folium, featuring:
   - Spatial insights: 44 hexagons identified as statistically significant hotspots (90%+ confidence).
   - Investment prioritization: Priority Score combines technical suitability, financial return, and spatial clustering for ranked decision support.
 
-*4. Technical Implementation Highlights*
+*3. Technical Implementation Highlights*
 
   - Scalability: Handles 632k+ buildings efficiently through vectorization, H3 aggregation, and caching.
   - Realism: Incorporates terrain constraints, shadow effects, degradation, O&M costs, and user-driven sensitivity analysis.
   - Multi-scale: Building-level detail + hexagonal policy view + hotspot detection.
   - User-centric: Interactive sliders, multiple synchronized views, export functionality, and clear legends.
   - Open & Reproducible: Relies on open datasets (Microsoft/Google buildings, Copernicus DEM, NASA POWER) and open-source tools (GeoPandas, Folium, H3, esda).
-
-*5. Limitations & Future Work*
-
-  - Shadow model uses simplified height proxy and exponential decay (no full neighbor ray-tracing).
-  - Slope/aspect derived from terrain DEM (not true roof pitch).
-  - Assumes full self-consumption or fixed export rates.
-  - Future enhancements could include: true DSM-based shading, net-metering scenarios, inflation-adjusted tariffs, and machine learning for suitability prediction.
-
-*6. Conclusion*
-
-  This project demonstrates a practical, scalable approach to urban solar potential assessment tailored to Ghanaian conditions (unreliable grid, high electricity costs, rapid urbanization). 
-  The resulting dashboard serves as a powerful decision-support tool for households, businesses, utilities, and policymakers. 
-  It bridges technical geospatial analysis with economic realism and spatial intelligence, providing actionable insights for accelerating solar adoption in Accra and similar African cities.
