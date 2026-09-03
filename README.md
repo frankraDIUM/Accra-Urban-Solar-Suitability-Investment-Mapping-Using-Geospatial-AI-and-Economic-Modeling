@@ -2,8 +2,16 @@
 
 Accra Solar Rooftop Suitability & Investment Dashboard. A geospatial AI pipeline and interactive decision-support tool for urban solar potential in central Accra, Ghana.
 
-
 ---
+
+Final Preview
+
+<p align="center">
+  <img src="https://github.com/frankraDIUM/Building-Level-Solar-Suitability-Mapping-in-Urban-Ghana/blob/main/solar_new.gif" />
+</p>
+---
+
+
 
 Dashboard Preview
 
